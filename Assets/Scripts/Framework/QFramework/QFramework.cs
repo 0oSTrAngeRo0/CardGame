@@ -26,7 +26,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace QFramework
+namespace Game
 {
 	#region Architecture
 
