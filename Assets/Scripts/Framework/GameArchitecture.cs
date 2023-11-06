@@ -9,7 +9,6 @@ namespace Game
             // Models
             
             // Systems
-            RegisterSystem(new MatchSystem());
         }
     }
 }
