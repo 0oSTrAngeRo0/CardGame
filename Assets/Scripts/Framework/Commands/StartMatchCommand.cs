@@ -1,4 +1,6 @@
-﻿namespace Game
+﻿using System.Collections.Generic;
+
+namespace Game
 {
 	public class StartMatchCommand : AbstractCommand
 	{
@@ -6,13 +8,17 @@
 		{
 			IMatchModel model = this.GetModel<IMatchModel>();
 			const int L_INIT_CARD = 3;
-			foreach (IPlayer player in model.Players.Values)
+			foreach (KeyValuePair<uint, IPlayer> player in model.Players)
 			{
 				for (int i = 0; i < L_INIT_CARD; i++)
 				{
-					
+					this.SendCommand(new DrawCardCommand(player.Key));
 				}
 			}
+
+			model.TotalPlayer.Value = (uint)model.Players.Count;
+			model.TurnCount.Value = 0;
+			model.CurrentPlayer.Value = 0;
 		}
 	}
 }

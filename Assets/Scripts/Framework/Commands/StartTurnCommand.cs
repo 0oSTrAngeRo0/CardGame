@@ -20,9 +20,7 @@
 			
 			this.SendEvent(new OnDrawPhaseStart(playerId, turn));			// 抽卡阶段开始时
 			this.GetUtility<ILogUtility>().Log("[Phase] Draw");
-			ICard card = player.Deck.Draw();
-			player.Hand.Add(card);
-			this.SendEvent(new OnDrawCardEvent(playerId, card));
+			this.SendCommand(new DrawCardCommand(playerId));
 			this.SendEvent(new OnDrawPhaseEnd(playerId, turn));				// 抽卡阶段结束时
 			
 			this.SendEvent(new OnCardSetPhaseStart(playerId, turn));		// 卡片设置阶段开始时

@@ -29,9 +29,9 @@ namespace Game
     {
         protected override void OnInit()
         {
-            TurnCount = new BindableProperty<uint>();
-            CurrentPlayer = new BindableProperty<uint>();
-            TotalPlayer = new BindableProperty<uint>();
+            TurnCount = new BindableProperty<uint>(uint.MaxValue);
+            CurrentPlayer = new BindableProperty<uint>(uint.MaxValue);
+            TotalPlayer = new BindableProperty<uint>(uint.MaxValue);
             Players = new Dictionary<uint, IPlayer>();
         }
 
