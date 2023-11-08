@@ -17,4 +17,16 @@ namespace Game
 		/// </summary>
 		public void Add(ICard card);
 	}
+	public class Grave : IGrave
+	{
+		private List<ICard> m_Cards;
+
+		public Grave()
+		{
+			m_Cards = new List<ICard>();
+		}
+
+		public IEnumerable<ICard> Cards() => m_Cards;
+		public void Add(ICard card) => m_Cards.Add(card);
+	}
 }

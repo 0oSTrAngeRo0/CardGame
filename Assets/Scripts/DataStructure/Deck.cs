@@ -37,4 +37,27 @@ namespace Game
 		/// </summary>
 		public void Add(ICard card);
 	}
+	
+	public class Deck : IDeck
+	{
+		private List<ICard> m_Cards;
+
+		public Deck(IEnumerable<ICard> cards)
+		{
+			m_Cards = new List<ICard>(cards);
+		}
+		
+		public ICard Draw()
+		{
+			ICard card = m_Cards[0];
+			m_Cards.RemoveAt(0);
+			return card;
+		}
+
+		public IEnumerable<ICard> PreviewCards() => m_Cards;
+		public IEnumerable<ICard> PreviewCardsWithoutSorted() => m_Cards;
+		public void Shuffle() { }
+		public void AddRange(IEnumerable<ICard> cards) => m_Cards.AddRange(cards);
+		public void Add(ICard card) => m_Cards.Add(card);
+	}
 }

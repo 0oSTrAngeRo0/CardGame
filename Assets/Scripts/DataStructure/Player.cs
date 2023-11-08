@@ -14,5 +14,24 @@
 		/// 墓地
 		/// </summary>
 		public IGrave Grave { get; }
+		
+		/// <summary>
+		/// 手牌
+		/// </summary>
+		public IHand Hand { get; }
+	}
+	
+	public class Player : IPlayer
+	{
+		public IDeck Deck { get; }
+		public IGrave Grave { get; }
+		public IHand Hand { get; }
+
+		public Player(IDeck deck, IGrave grave, IHand hand)
+		{
+			Deck = deck;
+			Grave = grave;
+			Hand = hand;
+		}
 	}
 }
